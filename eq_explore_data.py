@@ -16,9 +16,15 @@ all_eq_data = all_eq_data['features']
 # Poniższy wiersz wyświetla liczbę trzęsień ziemi.
 # print(len(all_eq_data))
 
-mags = []
+mags, lons, lats = [], [], []
 for eq_dict in all_eq_data:
     mag = eq_dict['properties']['mag']
+    lon = eq_dict['geometry']['coordinates'][0]
+    lat = eq_dict['geometry']['coordinates'][1]
     mags.append(mag)
-# Poniżej sprawdzenie czy mamy poprawne dane (pierwszych 10 rekordów).
-# print(mags[:10])
+    lons.append(lon)
+    lats.append(lat)
+
+print(mags[:10])
+print(lons[:5])
+print(lats[:5])
